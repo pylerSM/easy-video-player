@@ -114,8 +114,15 @@ public class MyPlayerActivity extends AppCompatActivity implements EasyVideoCall
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
+    public void onStart() {
+        super.onStart();
+        // Make sure the player starts playing if the user returns to the our activity
+        player.start();
+    }
+    
+    @Override
+    public void onStop() {
+        super.onStop();
         // Make sure the player stops playing if the user presses the home button.
         player.pause();
     }
